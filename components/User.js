@@ -40,7 +40,7 @@ export default class User extends Component{
         email: email,
         imagem: imagem,
         first_name: primeiroNome,
-        last_name: ultimoNome,})
+        last_name: ultimoNome})
 
     })
     .catch(error=>console.log(error))
@@ -49,10 +49,14 @@ export default class User extends Component{
   render(){
     return(
       <View>
-        <Text>{this.state.nome} </Text>
-        <Image source={{url:this.state.imagem}}></Image>
+        <Image source={{uri:this.state.imagem}}
+               style={{width: '100%',
+                       height: 250,
+                       resizeMode:'contain',
+                       justifyContent:'center'}}/>
         <Text>{this.state.id} </Text>
         <Text>{this.state.email} </Text>
+        <Text>{this.state.first_name} {this.state.last_name}</Text>
       </View>
     );
   }
